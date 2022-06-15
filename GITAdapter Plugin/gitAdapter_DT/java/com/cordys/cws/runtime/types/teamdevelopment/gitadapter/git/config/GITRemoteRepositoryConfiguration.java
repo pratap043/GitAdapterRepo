@@ -15,13 +15,13 @@ public class GITRemoteRepositoryConfiguration
 
 	private final String m_userName;
 
-	private final String m_userPersonalAccessToken;
+	private final String m_userPersonalAccessToken = "asdasdsdasd";
 
 	private String m_proxyHost;
 
 	private String m_proxyUserName;
 
-	private String m_proxyUserPassword;
+	private String m_proxyUserPassword = "sdfsdfsdfsdfsdf";
 
 	private int m_proxyPort;
 
@@ -126,6 +126,7 @@ public class GITRemoteRepositoryConfiguration
 	public void constructGitURL()
 	{
 		StringBuffer sbURL = new StringBuffer();
+
 		if (m_proxyEnabled)
 		{
 			//http://username:password@proxyHost:proxyPort/
