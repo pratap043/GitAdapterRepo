@@ -15,13 +15,13 @@ public class GITRemoteRepositoryConfiguration
 
 	private final String m_userName;
 
-	private final String m_userPersonalAccessToken = "asdasdsdasd";
+	private final String m_userPersonalAccessToken = "asdasdsdasd1";
 
 	private String m_proxyHost;
 
 	private String m_proxyUserName;
 
-	private String m_proxyUserPassword = "sdfsdfsdfsdfsdf";
+	private String m_proxyUserPassword = "sdfsdfsdfsdfsdf1";
 
 	private int m_proxyPort;
 
