@@ -1,0 +1,20 @@
+
+<WebSource
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.documenttypes.websource.WebSource"
+	RuntimeDocumentID="28DFEB6B-98A5-A1EC-AEBA-EDB437568977">
+	<DocumentID>28DFEB6B-98A5-A1EC-AEBA-EDB437564977</DocumentID>
+	<Name>web</Name>
+	<Description/>
+	<CreatedBy>sysadmin</CreatedBy>
+	<CreationDate>2022-04-13T05:36:51.983</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="28DFEB6B-98A5-A1EC-B119-FC744AEF097A"
+			path="GITAdapter Plugin/gitAdapter_DT/web"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</WebSource>

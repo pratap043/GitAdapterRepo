@@ -1,0 +1,13 @@
+
+<QualifiedNameRoot
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.namespace.qualifiedname.QualifiedNameRoot"
+	typeVersion="9bd1dc20-2f5e-11e3-aa6e-0800200c9a66"
+	RuntimeDocumentID="28DFEB6B-98A5-A1EC-B024-3F50CE45C979">
+	<DocumentID>28DFEB6B-98A5-A1EC-B024-3F50CE458979</DocumentID>
+	<Name>runtimeQNR for java</Name>
+	<Description/>
+	<CreatedBy>pmeka</CreatedBy>
+	<CreationDate>2022-04-20T10:02:31.505</CreationDate>
+	<Notes/>
+</QualifiedNameRoot>

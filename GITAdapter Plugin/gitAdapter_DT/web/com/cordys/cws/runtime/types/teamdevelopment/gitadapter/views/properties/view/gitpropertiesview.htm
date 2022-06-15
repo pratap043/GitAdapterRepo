@@ -1,0 +1,173 @@
+<html><head>
+
+	<script type="cordys/xml" id="xmlGITPropertiesViewDefinitions">
+		<GITPropertiesView>
+			<GITAdapterModel>
+				<BusinessObjectType>
+					<Name>com.cordys.cws.runtime.types.teamdevelopment.gitadapter.GITAdapter</Name>
+				</BusinessObjectType>
+				<InterfaceObjectType>
+					<Name>com.cordys.cws.runtime.types.teamdevelopment.gitadapter.views.properties.adapter.GITPropertiesAdapter</Name>
+				</InterfaceObjectType>
+			</GITAdapterModel>
+		</GITPropertiesView>
+	</script>
+	
+<script type="text/javascript">
+	setPublic( GITPropertiesView, "com.cordys.cws.runtime.types.teamdevelopment.gitadapter.views.properties.view" );
+
+    importType("com.cordys.cws.umf.views.properties.StudioUMFSharedPropertiesView");
+    importType("com.cordys.cws.umf.communication.JobHandler");
+	importType("com.cordys.cws.CWSJSMessageBundleHelper");
+	// ++++++++++++++++++++++++++++ Project Properties View +++++++++++++++++++++++++++++++++++++++
+	/*
+		ClassDescriptionStart
+			Name				: Project Properties View
+			BaseClass			: PropertiesView
+			Description			:
+		ClassDescriptionEnd
+	*/
+	//===================================== Constructor ===========================================
+
+	inherit(GITPropertiesView, StudioUMFSharedPropertiesView);
+	
+	function GITPropertiesView()
+	{
+		this.StudioUMFSharedPropertiesView();
+		this.saveOnClose(false);
+		this.viewDefinition(xmlGITPropertiesViewDefinitions.XMLDocument.documentElement);
+		this.applicationDefinition().URL("com/cordys/cws/runtime/types/teamdevelopment/gitadapter/views/properties/view/gitadapter_properties_view.caf");
+		this.ID(this.applicationDefinition().URL());
+		this.applicationDefinition().ID(this.ID());
+		this.uiObjectType("GITAdapterModel");
+		this.m_readonly = false;
+	}
+
+	//===================================== Properties ============================================
+	//===================================== Interfaces ============================================
+	//===================================== Events ================================================
+	
+	GITPropertiesView.prototype.onAfterLoaded = function()
+	{
+		this.inherited( GITPropertiesView, "onAfterLoaded" );
+		if (this.m_readonly) //use disable to get a greyed out field.on XForm
+		{
+			this.getViewApplication().inputUserName.focus(); //first remove focus from inputURL, otherwise it keeps focus after disable.
+			this.getViewApplication().inputURL.disable();
+			this.getViewApplication().warningMessage.hide();
+		}
+		else
+		{
+			this.getViewApplication().inputURL.enable();
+			this.getViewApplication().inputURL.focus();
+		}
+	}
+	
+	GITPropertiesView.prototype.onAfterOpen = function()
+	{
+		if(!this.businessObject().proxyEnabled())
+		{
+			this.getViewApplication().groupProxyDetails.hide();
+		}
+		if(!this.m_readonly)
+		{
+			//clearing the default 10 * value which is set by property type handler during creation of FormData of viewInterface.
+			this.getViewApplication().inputPassword.setValue("", false);
+			this.getViewApplication().inpProxyPassword.setValue("", false);	
+		}	
+	}
+	
+	//invoked from workspace creation wizard
+	GITPropertiesView.prototype.onBeforeFinish = function()
+	{
+		return this._validateGITDetails();
+	}
+	
+	GITPropertiesView.prototype.onBeforeClose = function(iEventObject)
+	{
+		this.__GITPropertiesView_validateFailed = null;
+	}
+	//===================================== Collections ===========================================
+	//===================================== Methods ===============================================
+
+	GITPropertiesView.prototype._setURLReadonly = function(readonly)
+	{
+		this.m_readonly = readonly;
+	}
+	
+	GITPropertiesView.prototype._validateGITDetails = function GITPropertiesView_validateGITDetails()
+	{
+		var gitadapterObj = this.businessObject();
+		if( this.isInputEmpty(gitadapterObj.uRL()))
+		{
+			this.getCordysApplication().showError(CWSJSMessageBundleHelper.getText("errorCWSNoGITURL"), null, this.getViewApplication().inputURL);
+			this.getViewApplication().inputURL.focus();
+			return false;
+		}
+		else if (this.isInputEmpty(gitadapterObj.username()))
+		{
+			this.getCordysApplication().showError(CWSJSMessageBundleHelper.getText("errorCWSNoGITUser"), null, this.getViewApplication().inputUserName);
+			this.getViewApplication().inputUserName.focus();
+			return false;
+		}
+		else if (!this.m_readonly && this.isInputEmpty(gitadapterObj.password()))
+		{
+			this.getCordysApplication().showError(CWSJSMessageBundleHelper.getText("errorCWSNoGITPersonalAccessToken"), null, this.getViewApplication().inputPassword);
+			this.getViewApplication().inputPassword.focus();
+			return false;
+		}
+		else if (this.isInputEmpty(gitadapterObj.branch()))
+		{
+			this.getCordysApplication().showError(CWSJSMessageBundleHelper.getText("errorCWSNoGITBranch"), null, this.getViewApplication().inputBranch);
+			this.getViewApplication().inputBranch.focus();
+			return false;
+		}
+		else if (gitadapterObj.proxyEnabled())
+		{
+			if( this.isInputEmpty(gitadapterObj.proxyHost()))
+			{
+				this.getCordysApplication().showError(CWSJSMessageBundleHelper.getText("errorCWSEnterProxyHost"), null, this.getViewApplication().inpHostName);
+				this.getViewApplication().inpHostName.focus();
+				return false;
+			}
+			else if (this.isInputEmpty(gitadapterObj.proxyPort()))
+			{
+				this.getCordysApplication().showError(CWSJSMessageBundleHelper.getText("errorCWSEnterProxyPort"), null, this.getViewApplication().inpProxyPort);
+				this.getViewApplication().inpProxyPort.focus();
+				return false;
+			}
+		}
+		
+		var jobHandlerObj = new JobHandler(gitadapterObj, false);
+		jobHandlerObj.isShowSOAPFault(false);
+		jobHandlerObj.addListener("onSOAPFault", GITPropertiesView_validateFailed(this) )
+		var isValid = gitadapterObj.hasValidConnection(jobHandlerObj);
+		jobHandlerObj.removeListener("onSOAPFault", GITPropertiesView_validateFailed(this) );
+		if(!isValid)
+		{
+			return false;
+		}
+		return true;
+	}
+	
+	function GITPropertiesView_validateFailed(iInstance)
+	{
+		if(!iInstance.__GITPropertiesView_validateFailed)
+		{
+			iInstance.__GITPropertiesView_validateFailed = function(iEventObject)
+			{
+				iEventObject.soapFault.show(iInstance.getCordysApplication());
+			}
+		}
+		return iInstance.__GITPropertiesView_validateFailed;
+	}
+	
+	GITPropertiesView.prototype.testConnectivity = function()
+	{
+		if(this._validateGITDetails()) 
+		{
+			this.getCordysApplication().inform(CWSJSMessageBundleHelper.getText("informationTestConnectionSuccessful"));
+		}
+	}
+</script>
+</head><body></body></html>

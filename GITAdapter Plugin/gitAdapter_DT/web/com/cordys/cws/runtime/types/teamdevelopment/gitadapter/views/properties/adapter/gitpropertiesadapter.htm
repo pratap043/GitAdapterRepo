@@ -1,0 +1,16 @@
+<html><head>
+
+<script type="text/javascript">
+	setPublic( GITPropertiesAdapter, "com.cordys.cws.runtime.types.teamdevelopment.gitadapter.views.properties.adapter" );
+	
+	importType("com.cordys.cws.umf.views.properties.StudioUMFPropertiesInterface");
+	
+	inherit(GITPropertiesAdapter, StudioUMFPropertiesInterface);
+
+	function GITPropertiesAdapter()
+	{
+		this.StudioUMFPropertiesInterface();
+		this.mainXFormModelID("GITAdapterModel");
+	}	
+</script>
+</head><body></body></html>

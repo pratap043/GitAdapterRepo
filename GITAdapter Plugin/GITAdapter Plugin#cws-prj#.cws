@@ -1,0 +1,103 @@
+
+<Project
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.documenttypes.project.Project"
+	typeVersion="0019B980-5ADC-71DF-9C5A-1C9DE0779704"
+	RuntimeDocumentID="28DFEB6B-98A5-A1EC-AEBA-D5CDD6E18977">
+	<DocumentID>28DFEB6B-98A5-A1EC-AEBA-D5CDD6E14977</DocumentID>
+	<Name>GITAdapter Plugin</Name>
+	<Description>GITAdapter Plugin</Description>
+	<CreatedBy>sysadmin</CreatedBy>
+	<CreationDate>2022-04-13T05:35:47.86</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<Configurations/>
+	<ISVPackageInfo>
+		<ISVPackageInfo
+			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
+			typeVersion="00215A62-2E6A-11E2-EEB7-903C43CFF084"
+			RuntimeDocumentID="28DFEB6B-98A5-A1EC-AEBA-D5CDD6E08977">
+			<DocumentID>28DFEB6B-98A5-A1EC-AEBA-D5CDD6E04977</DocumentID>
+			<Name>Cordys CWS GITAdapter Plugin</Name>
+			<Description>Cordys CWS GITAdapter Plugin</Description>
+			<CreatedBy>sysadmin</CreatedBy>
+			<CreationDate>2022-04-13T05:35:47.86</CreationDate>
+			<Notes/>
+			<BuildNumber>0</BuildNumber>
+			<GenerateModelPackage>false</GenerateModelPackage>
+			<ISVPackageFileName>Cordys CWS GITAdapter Plugin 1.0.0</ISVPackageFileName>
+			<ISVPackageOwner>Cordys CWS</ISVPackageOwner>
+			<PackageForRuntime>true</PackageForRuntime>
+			<PostISVLoaderInformation/>
+			<Product>CWS GITAdapter Plugin</Product>
+			<SupportedDeploymentSpaces
+				xmlns:cws="http://schemas.cordys.com/cws/1.0"
+				cws:type="collection:string">
+				<cws:item>SHARED</cws:item>
+			</SupportedDeploymentSpaces>
+			<Version>1.0</Version>
+			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
+		</ISVPackageInfo>
+	</ISVPackageInfo>
+	<RuntimeQualifiedName/>
+	<SourceFolder>
+		<uri
+			id="28DFEB6B-98A5-A1EC-B119-FC744AD6897A"
+			path="GITAdapter Plugin"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+	<_AddOns>
+		<TranslationInformation
+			type="com.cordys.translation.TranslationInformation"
+			typeVersion="b81bb9b4-8af7-470f-a5fa-864be49acb9d"
+			RuntimeDocumentID="28DFEB6B-98A5-A1EC-AEBA-D5CDD6E00977">
+			<DocumentID>28DFEB6B-98A5-A1EC-AEBA-D5CDD6DFC977</DocumentID>
+			<Name>TranslationInformation</Name>
+			<Description>TranslationInformation</Description>
+			<CreatedBy>sysadmin</CreatedBy>
+			<CreationDate>2022-04-13T05:35:47.86</CreationDate>
+			<Notes/>
+			<LanguagePacks>
+				<LanguagePack
+					type="com.cordys.translation.LanguagePack"
+					typeVersion="11456b87-q895-32f2-584q-58f3tlm2so65"
+					RuntimeDocumentID="28DFEB6B-98A5-A1EC-AEBA-D5CDD6DF0977">
+					<DocumentID>28DFEB6B-98A5-A1EC-AEBA-D5CDD6DEC977</DocumentID>
+					<Name>en-US</Name>
+					<Description>en-US</Description>
+					<CreatedBy>sysadmin</CreatedBy>
+					<CreationDate>2022-04-13T05:35:47.86</CreationDate>
+					<Notes/>
+					<Language>English - United States</Language>
+					<Texts>
+						<uri
+							id="28DFEB6B-98A5-A1EC-B119-FC744AD7897A"
+							path="GITAdapter Plugin/en-US_28DFEB6B-98A5-A1EC-AEBA-D5CDD6DE4977"
+							type="com.cordys.cws.associations.MergeableAssociation"
+						/>
+					</Texts>
+					<TranslationInformation>
+						<uri
+							id="28DFEB6B-98A5-A1EC-AEBA-D5CDD6DFC977"
+						/>
+					</TranslationInformation>
+				</LanguagePack>
+			</LanguagePacks>
+			<ProjectLanguage>
+				<uri
+					id="28DFEB6B-98A5-A1EC-AEBA-D5CDD6DEC977"
+				/>
+			</ProjectLanguage>
+			<Texts>
+				<uri
+					id="28DFEB6B-98A5-A1EC-B119-FC744AFB497A"
+					path="GITAdapter Plugin/TranslationInformation_28DFEB6B-98A5-A1EC-AEBA-D5CDD6DF4977"
+					type="com.cordys.cws.associations.MergeableAssociation"
+				/>
+			</Texts>
+			<TranslationInformation/>
+		</TranslationInformation>
+	</_AddOns>
+</Project>

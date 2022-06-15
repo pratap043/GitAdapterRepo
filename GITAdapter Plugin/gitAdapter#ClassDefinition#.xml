@@ -1,0 +1,40 @@
+<modelerdefinition
+	xmlns="http://schemas.cordys.com/CWS/ModelerDefinition/1.0"
+	version="1.0">
+	<bundle name="cordys.cws.gitadapter" />
+	<package
+		namespace="com.cordys.cws.runtime.types.teamdevelopment.gitadapter"
+		version="1.0">
+		<class name="GITAdapter" description="GIT Adapter"
+			displayName="GIT" displayNamePlural="GIT"
+			id="FF08B979-3179-41BF-9D5C-0EFF4484FFE8">
+			<extend class="SCMAdapter"
+				package="com.cordys.cws.runtime.types.teamdevelopment" />
+			<properties>
+				<property name="URL" type="String" />
+				<property name="Username" type="String" />
+				<property name="Password" type="Password" />
+				<property name="Branch" type="String"/>
+				<property name="ProxyEnabled" type="Boolean">
+					<default>false</default>
+				</property>
+				<property name="ProxyHost" type="String" />
+				<property name="ProxyPort" type="integer">
+					<default>8081</default>
+				</property>
+				<property name="ProxyUsername" type="String" />
+				<property name="ProxyPassword" type="Password" />
+				<property name="Revision" type="integer">
+					<default>0</default>
+				</property>
+			</properties>
+			<associations>
+				<association aggregation="none"
+					role="WorkingCopyStateRoot" class="StateRoot"
+					package="com.cordys.cws.synchronize.state.root" minOccurs="0"
+					maxOccurs="1" />
+			</associations>
+			<operations />
+		</class>
+	</package>
+</modelerdefinition>

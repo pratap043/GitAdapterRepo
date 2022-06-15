@@ -1,0 +1,18 @@
+
+<MessageBundleGenerator
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.documenttypes.javaarchivesource.localization.MessageBundleGenerator"
+	RuntimeDocumentID="D0A32B6E-506D-43C0-876A-A48112186523">
+	<DocumentID>834DBCBF-D34F-4446-9CEB-6CE1962E02EA</DocumentID>
+	<Name>GITAdapter Plugin Message Bundle Generator</Name>
+	<Description/>
+	<CreatedBy></CreatedBy>
+	<CreationDate>2022-05-05T00:00:00.0</CreationDate>
+	<Notes/>
+	<MessageBundleClass>com.cordys.cws.runtime.types.teamdevelopment.gitadapter.internal.message.Messages</MessageBundleClass>
+	<ForJAS>
+		<uri
+			id="28DFEB6B-98A5-A1EC-AEBA-EDB43748C977"
+		/>	
+	</ForJAS>
+</MessageBundleGenerator>
